@@ -1,0 +1,38 @@
+/************************************************************
+
+    Following is the Binary Tree node structure
+
+    class BinaryTreeNode 
+    {
+        public : 
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data) 
+        {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+************************************************************/
+void leftview(BinaryTreeNode<int> *root,int level,vector<int> &res){
+     if(root==NULL) return;
+    if(res.size()==level)
+    {
+        res.push_back(root->data);
+        cout<<root->data<<" ";
+      
+    }
+    leftview(root->left,level+1,res);
+    leftview(root->right,level+1,res);
+}
+void printLeftView(BinaryTreeNode<int> *root)
+{
+  //Write your code here
+    vector<int>res;
+    leftview(root,0,res);
+  
+}
